@@ -1,0 +1,761 @@
+<link rel="shortcut icon" type="image/png" href="">
+
+<hh_fake_doctype> html</hh_fake_doctype>
+<hh_fake_tag_name_html lang="en">
+<hh_fake_tag_name_head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Schoology</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background-color: #000;
+            height: auto;
+            min-height: 100vh;
+            overflow: auto;
+            position: relative;
+        }
+
+        header {
+            background-color: #000000;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .logo {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .banner {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner h1 {
+            font-size: 64px; /* Increased font size for better visibility */
+            color: red; /* Color of the title */
+            animation: sparkle 2s infinite; /* Sparkling effect */
+            transform: rotate(-3deg); /* Create a slight arch */
+            text-shadow: 
+                0 0 5px rgba(255, 69, 0, 1),
+                0 0 10px rgba(255, 69, 0, 0.8),
+                0 0 15px rgba(255, 69, 0, 0.6),
+                0 0 20px rgba(255, 69, 0, 0.4),
+                0 0 30px rgba(255, 69, 0, 0.2);
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px rgba(255, 69, 0, 0.5),
+                    0 0 10px rgba(255, 69, 0, 0.4),
+                    0 0 15px rgba(255, 69, 0, 0.3);
+            }
+            50% {
+                text-shadow: 
+                    0 0 20px rgba(255, 0, 0, 1),
+                    0 0 25px rgba(255, 0, 0, 0.8),
+                    0 0 30px rgba(255, 0, 0, 0.6);
+            }
+        }
+
+        .banner p {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .banner button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #e50914;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Search Bar Styles */
+        .search-container {
+            margin-top: 20px;
+            position: relative; /* To position the dropdown */
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px; /* Updated to make the search bar longer */
+            height: 40px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px; /* Curved edges */
+            font-size: 16px;
+            color: black; /* Text color */
+            background: white; /* Background color */
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-bar::placeholder {
+            color: #999;
+        }
+
+        .search-results {
+            display: none; /* Initially hidden */
+            position: absolute; /* Positioned relative to the search container */
+            top: 50px; /* Adjust as needed */
+            left: 0;
+            width: 100%; /* Match search bar width */
+            background-color: white; /* Background of the dropdown */
+            border-radius: 5px; /* Curved edges */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .search-result {
+            padding: 10px;
+            color: black; /* Text color for results */
+            cursor: pointer;
+        }
+
+        .search-result:hover {
+            background-color: #f0f0f0; /* Highlight on hover */
+        }
+
+        .movie-section {
+            padding: 100px 20px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .movie-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .movie-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .movie-card {
+            position: relative;
+            width: 120px; /* Adjust card width */
+            cursor: pointer;
+            transition: transform 0.3s; /* Smooth transition for transform */
+            border-radius: 10px; /* Rounded corners */
+            overflow: hidden; /* Round the overflow */
+        }
+
+        .movie-card img {
+            width: 100%; /* Full width */
+            border-radius: 10px; /* Round image corners */
+        }
+
+        /* Hover effect */
+        .movie-card:hover {
+            outline: 5px solid white; /* Thick white outline on hover */
+            transform: scale(1.05); /* Slight zoom on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 5;
+        }
+
+        /* Background Carousel */
+        .background-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-height: 100%; /* Ensure it covers the full height */
+            z-index: 1;
+            background-image: url('https://giffiles.alphacoders.com/820/820.gif');
+            background-repeat: no-repeat;
+            background-size: cover;
+            animation: slide 30s infinite;
+        }
+
+        @keyframes slide {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 0%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        /* Welcome Modal */
+        #welcomeModal {
+            display: flex;
+            flex-direction: column; /* Allow stacking of elements */
+            align-items: center; /* Center items */
+            justify-content: center;
+            position: fixed;
+            z-index: 200; /* Set a high z-index to ensure it appears above everything */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .glow {
+            font-size: 64px;
+            font-weight: bold;
+            text-shadow:
+                0 0 5px rgba(255, 69, 0, 1),
+                0 0 10px rgba(255, 69, 0, 0.8),
+                0 0 15px rgba(255, 69, 0, 0.6),
+                0 0 20px rgba(255, 69, 0, 0.4),
+                0 0 30px rgba(255, 69, 0, 0.2);
+        }
+
+        /* Spinning Wheel Styles */
+        .spin-wheel {
+            width: 100px;
+            height: 100px;
+            border: 10px solid red; /* Red outer border */
+            border-radius: 50%;
+            border-top-color: transparent; /* Make top transparent for spinning effect */
+            animation: spin 1s linear infinite; /* Spin animation */
+            margin: 20px 0; /* Spacing around the wheel */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Request Form Styling */
+        .request-section {
+            display: none; /* Keep this hidden by default */
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.8); /* Normal background dark */
+            min-height: 100vh; /* Ensure it takes up full height */
+            position: relative;
+            box-shadow: 0 0 50px darkred;
+            border: 5px solid darkred;
+            z-index: 10;
+        }
+
+        .request-form {
+            background: rgba(255, 255, 255, 0.9);
+            /* Removed backdrop filter to ensure brightness */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 0 30px darkred;
+            border: 2px solid darkred;
+        }
+
+        .request-form input,
+        .request-form button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid darkred;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .request-form button {
+            background-color: #e50914;
+            color: white;
+            cursor: pointer;
+        }
+
+        .request-form input:focus {
+            outline: none;
+            border-color: #e50914;
+        }
+
+        /* Login/Signup Section Styling */
+        .login-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 15;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 50px darkred;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            width: 90vw;
+            height: 80vh;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 36px; /* Font size for the close button */
+            line-height: 1; /* Ensure the text is vertically centered */
+            border: none;
+            border-radius: 50%; /* Make it circular */
+            width: 60px;  /* Width of the button */
+            height: 60px; /* Height of the button */
+            background: linear-gradient(45deg, red, black);
+            background-size: 200% 200%; /* For the animated gradient */
+            animation: liquid 2s ease infinite; /* Animation for liquid effect */
+            color: white; /* Close button color */
+        }
+
+        /* Liquid rotation effect */
+        @keyframes liquid {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .modal-close:hover {
+            background: linear-gradient(45deg, black, red);
+            transition: background 0.3s; /* Smooth color transition on hover */
+        }
+
+        /* Bug Fixes Box Style */
+        .bug-fixes {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            z-index: 200; /* Ensure it appears above other content */
+            animation: glow 1.5s infinite alternate; /* Glow effect */
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            }
+            100% {
+                box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+            }
+        }
+
+        .bug-fixes p {
+            margin: 5px 0; /* Space between paragraphs */
+            color: black; /* Standard text color */
+            font-weight: normal; /* Ensure text is not bold */
+        }
+    </style>
+</hh_fake_tag_name_head>
+
+<hh_fake_tag_name_body>
+    <header>
+        <div class="logo">Flixfy Tv</div>
+        <nav>
+            <ul>
+                <li><a href="#" id="homeLink">Home</a></li>
+                <li><a href="#" id="requestLink">Request</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="background-carousel"></div>
+
+    <main>
+        <section id="homeSection">
+            <div class="banner">
+                <div class="banner-content">
+                    <h1>Flixfy</h1>
+                    <p>Your favorites, all in one place!</p>
+                    <button id="watchNowBtn">Scroll to find the new, the popular, the best</button>
+
+                    <!-- Search Bar -->
+                    <div class="search-container">
+                        <input type="text" class="search-bar" id="searchBar" placeholder="Search your favorites from Flixify" />
+                        <div class="search-results" id="searchResults"></div> <!-- Dropdown for results -->
+                    </div>
+                </div>
+            </div>
+
+            <section class="movie-section">
+                <h2>Flixfy Free</h2>
+                <div class="movie-grid">
+                    <!-- Movie cards will be added here dynamically via JavaScript -->
+                </div>
+            </section>
+        </section>
+
+        <section id="loginSection" class="login-section" style="display: none;">
+            <div class="request-form" id="loginForm">
+                <h2>Sign In</h2>
+                <input type="text" id="phoneNumber" placeholder="Your Phone Number" required>
+                <button type="button" id="sendVerificationBtn">Send Verification Code</button>
+                <p id="statusMessage" style="color: red;"></p>
+            </div>
+
+            <div class="request-form" id="verificationForm" style="display: none;">
+                <h2>Verification</h2>
+                <p>Please enter your verification code:</p>
+                <input type="text" id="enteredVerificationCode" placeholder="Enter Verification Code" required>
+                <button type="button" id="confirmLogin">Confirm Login</button>
+                <p id="verificationMessage" style="color: red;"></p>
+            </div>
+        </section>
+
+        <section id="requestSection" class="request-section" style="display: none;">
+            <div class="request-form">
+                <h2>Movie Request</h2>
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="text" id="movieTitle" placeholder="Movie Title" required>
+                <button type="submit" id="submitRequest">Submit</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Flixfycorp. All rights reserved.</p>
+    </footer>
+
+    <!-- Welcome Modal -->
+    <div id="welcomeModal">
+        <div class="glow">Flixfy CORP. (GLOBAL) [beta]</div>
+        <div class="spin-wheel"></div> <!-- Spinning Wheel -->
+        <p style="font-size: 14px; color: white; margin-top: 10px;">Getting the latest updates from Flixify Corp</p>
+    </div>
+
+    <!-- Modal for Movie Playback -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">X</button>
+            <iframe id="videoPlayer" src="" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Bug Fixes Box -->
+    <div class="bug-fixes">
+        <p>Bug Fixes</p>
+        <p>1056521@lcps.org</p>
+        <p>This is in beta, there will be bugs</p>
+    </div>
+
+    <script>
+        let loggedIn = false;
+        let verificationCode = ''; // Variable to store verification code
+
+        // Movies data (keeping the last 4 movies)
+        let movies = [
+            { title: "Garfield Movie 2024", url: "https://drive.google.com/file/d/1OZBSvjuudnt2GxUUwSTRoFKgbrfu7WPm/preview", imgSrc: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKnNw6EVlJ_ca_KrnQdZCjPOGdintsXz8XHuP5kSG6Kzl6_dXw" },
+            { title: "Twisters", url: "https://drive.google.com/file/d/14_s96ZSrnA-14ORKnLGFAvRX3zZsQhMU/preview", imgSrc: "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/fandango/234525/FND_poster_Twisters-Presale.jpg" },
+            
+{ title: "Alien Romulus #W/ Sponsor", url: "https://drive.google.com/file/d/1gDUINfGWXaCyvj9JSX-MpCbmHr5L93b8/preview", imgSrc: "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/261/2024/08/05154755/b33nnKl1GSFbao4l3fZDDqsMx0F-scaled.jpg" },
+            { title: "Movie 8", url: "https://www.example.com/movie8", imgSrc: "https://via.placeholder.com/120x180?text=Movie+8" }
+        ]; // The remaining movies
+
+        // Populate movie cards
+        const movieGrid = document.querySelector('.movie-grid');
+        movies.forEach(movie => {
+            const movieCard = document.createElement('div');
+            movieCard.classList.add('movie-card');
+            movieCard.dataset.url = movie.url;
+
+            movieCard.innerHTML = `
+                <img src="${movie.imgSrc}" alt="${movie.title}">
+                <h3 style="text-align: center;">${movie.title}</h3>
+            `;
+
+            movieCard.addEventListener('click', function () {
+                openMovieModal(movie.url);
+            });
+
+            movieGrid.appendChild(movieCard);
+        });
+
+        // Function to display the modal for movie playback
+        function openMovieModal(url) {
+            document.getElementById('videoPlayer').src = url; // Set URL in iframe
+            document.getElementById('myModal').style.display = "flex"; // Show modal
+        }
+
+        // Close modal action
+        document.querySelector('.modal-close').onclick = function () {
+            document.getElementById('myModal').style.display = "none"; // Hide on close
+            document.getElementById('videoPlayer').src = ""; // Stop video playback
+        }
+
+        document.getElementById('watchNowBtn').addEventListener('click', function () {
+            alert("Feature coming soon!");
+        });
+
+        document.getElementById('homeLink').addEventListener('click', function () {
+            if (loggedIn) {
+                document.getElementById('homeSection').style.display = 'block';
+                document.getElementById('requestSection').style.display = 'none';
+                document.body.style.backgroundColor = '#141414';
+            } else {
+                document.getElementById('loginSection').style.display = 'flex';
+                document.body.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                document.getElementById('homeSection').style.display = 'none'; // Ensure home section is hidden
+            }
+        });
+
+        document.getElementById('requestLink').addEventListener('click', function () {
+            if (loggedIn) {
+                document.getElementById('homeSection').style.display = 'none';
+                document.getElementById('requestSection').style.display = 'block';
+                document.body.style.backgroundColor = '#000';  // Set to standard background color
+            } else {
+                document.getElementById('loginSection').style.display = 'flex';
+                document.body.style.backgroundColor = 'rgba(0,0,0,0.9)';
+                document.getElementById('homeSection').style.display = 'none'; // Ensure home section is hidden
+            }
+        });
+
+        document.getElementById('sendVerificationBtn').addEventListener('click', function () {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+
+            // Validate phone number length (for simplicity, let's assume US numbers)
+            if (phoneNumber.length === 10) {
+                const verifiedNumbers = JSON.parse(localStorage.getItem('verifiedNumbers')) || [];
+
+                // Check if phone number is already verified
+                if (verifiedNumbers.includes(phoneNumber)) {
+                    alert("This phone number has already been verified. You can log in directly.");
+                    document.getElementById('loginSection').style.display = 'none';
+                    document.getElementById('homeSection').style.display = 'block';
+                    loggedIn = true;
+                    document.body.style.backgroundColor = '#141414';
+                    return;
+                }
+
+                // Generate a random 4-digit verification code
+                verificationCode = Math.floor(1000 + Math.random() * 9000).toString();
+
+                // Show the verification window
+                const approvalWindow = window.open('', '_blank');
+                approvalWindow.document.write(`
+                    <hh_fake_tag_name_html>
+                        <hh_fake_tag_name_head>
+                            <title>Verification</title>
+                            <style>
+                                body {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    height: 100vh;
+                                    background-color: #282c34;
+                                    color: white;
+                                    font-family: Arial, sans-serif;
+                                    text-align: center;
+                                }
+                                .approval-message {
+                                    font-size: 32px;
+                                    margin-bottom: 20px;
+                                    color: green;
+                                    font-weight: bold;
+                                }
+                                .code {
+                                    font-size: 24px;
+                                    margin: 20px 0;
+                                    background: #444;
+                                    padding: 15px;
+                                    border-radius: 5px;
+                                }
+                                .unlock-icon {
+                                    font-size: 48px;
+                                    color: green;
+                                }
+                            </style>
+                        </hh_fake_tag_name_head>
+                        <hh_fake_tag_name_body>
+                            <div class="unlock-icon">🔓</div>
+                            <div class="approval-message">Approved</div>
+                            <div class="code">Your verification code is: ${verificationCode}</div>
+                        </hh_fake_tag_name_body>
+                    </hh_fake_tag_name_html>
+                `);
+
+                // Show verification form
+                document.getElementById('loginForm').style.display = 'none'; // Hide phone input
+                document.getElementById('verificationForm').style.display = 'flex'; // Show verification input
+            } else {
+                alert("Please enter a valid 10-digit phone number.");
+            }
+        });
+
+        document.getElementById('confirmLogin').addEventListener('click', function () {
+            const enteredCode = document.getElementById('enteredVerificationCode').value;
+            const verificationMessage = document.getElementById('verificationMessage');
+
+            // Check if the entered code matches the generated code
+            if (enteredCode === verificationCode) {
+                loggedIn = true;
+
+                let verifiedNumbers = JSON.parse(localStorage.getItem('verifiedNumbers')) || [];
+                if (!verifiedNumbers.includes(document.getElementById('phoneNumber').value)) {
+                    verifiedNumbers.push(document.getElementById('phoneNumber').value);
+                    localStorage.setItem('verifiedNumbers', JSON.stringify(verifiedNumbers));
+                }
+
+                alert('Login successful!');
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('homeSection').style.display = 'block';
+                document.body.style.backgroundColor = '#141414';
+            } else {
+                verificationMessage.textContent = 'Incorrect Code!';
+            }
+        });
+
+        document.getElementById('submitRequest').addEventListener('click', function () {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const movieTitle = document.getElementById('movieTitle').value;
+
+            if (name && email && movieTitle) {
+                alert(`Thanks for submitting, ${name}!`);
+                const mailtoLink = `mailto:1056521@lcps.org?subject=Movie%20Request%20from%20${encodeURIComponent(name)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0AMovie%20Title:%20${encodeURIComponent(movieTitle)}`;
+                window.location.href = mailtoLink;
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('movieTitle').value = '';
+            } else {
+                alert('Please fill in all fields before submitting.');
+            }
+        });
+
+        // Search functionality
+        const searchBar = document.getElementById('searchBar');
+        const searchResults = document.getElementById('searchResults');
+
+        searchBar.addEventListener('input', function () {
+            const query = searchBar.value.toLowerCase();
+            searchResults.innerHTML = ''; // Clear previous results
+
+            const filteredMovies = movies.filter(movie => movie.title.toLowerCase().includes(query));
+
+            if (query && filteredMovies.length > 0) {
+                filteredMovies.forEach(movie => {
+                    const resultItem = document.createElement('div');
+                    resultItem.classList.add('search-result');
+                    resultItem.textContent = movie.title;
+                    resultItem.addEventListener('click', function() {
+                        openMovieModal(movie.url); // Open the movie in modal on click
+                        searchBar.value = ''; // Clear the search input
+                        searchResults.innerHTML = ''; // Clear results
+                        searchResults.style.display = 'none'; // Hide results after selection
+                    });
+                    searchResults.appendChild(resultItem);
+                });
+                searchResults.style.display = 'block'; // Show the dropdown
+            } else {
+                searchResults.style.display = 'none'; // Hide if no results
+            }
+        });
+
+        // Close search results when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!searchBar.contains(event.target) && !searchResults.contains(event.target)) {
+                searchResults.style.display = 'none'; // Hide results when clicking outside
+            }
+        });
+
+        // Function to close all modals
+        function closeAllModals() {
+            document.getElementById('myModal').style.display = "none";
+            document.getElementById('loginSection').style.display = "none";
+            document.getElementById('verificationForm').style.display = "none";
+        }
+
+        // Auto-close welcome modal after a delay and close any open modals
+        setTimeout(() => {
+            closeAllModals(); // Ensure all modals are closed
+            document.getElementById('welcomeModal').style.display = 'none'; // Close the welcome modal
+
+            // Show the login form
+            document.getElementById('loginSection').style.display = 'flex'; // Show login section
+        }, 5000); // 5 seconds delay
+
+    </script>
+</hh_fake_tag_name_body>
+</hh_fake_tag_name_html>
